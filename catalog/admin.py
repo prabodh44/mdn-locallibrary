@@ -12,9 +12,15 @@ admin.site.register(Author, AuthorAdmin)
 # registering new models using the @register deocorator
 # does the same thing as above
 
+# class BookInstanceInline(admin.TabularInline):
+#     model = BookInstance
+
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):
     list_display = ('title', 'author')
+    
+    # add book and bookinstance at the same time 
+    # inlines = [BookInstance,]
 
 @admin.register(BookInstance)
 class BookInstanceAdmin(admin.ModelAdmin):
@@ -27,6 +33,8 @@ class BookInstanceAdmin(admin.ModelAdmin):
              'fields' : ('status', 'due_back')   
             })
     )
+    
+
 
 admin.site.register(Genre)
 # admin.site.register(Author)

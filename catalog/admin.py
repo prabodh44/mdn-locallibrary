@@ -17,8 +17,8 @@ class BookAdmin(admin.ModelAdmin):
 
 @admin.register(BookInstance)
 class BookInstanceAdmin(admin.ModelAdmin):
-    pass
-
+    # adding list filters using list_filter
+    list_filter = ('status', 'due_date')
 
 admin.site.register(Genre)
 # admin.site.register(Author)

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>LMS</h1>
+    <p>The library has the following record count</p>
+    <ul>
+        <li><strong>Books:</strong> {{ num_of_books }}</li>
+        <li><strong>Copies:</strong> {{ num_of_instances }}</li>
+        <li><strong>Copies available:</strong> {{ num_of_instances_avaiable }}</li>
+        <li><strong>Authors:</strong> {{ num_of_authors }}</li>
+    </ul>
+{% endblock content %}

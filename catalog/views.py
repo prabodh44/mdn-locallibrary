@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views import generic
 
 from catalog.models import BookInstance, Book, Author, Genre
 # Create your views here.
@@ -21,3 +22,29 @@ def index(request):
     
     return render(request, 'index.html', context)
     
+
+# CLASS BASED VIEWS
+# class BookListView(generic.ListView):
+#     model = Book
+#     context_object_name = 'my_book_list'
+#     queryset = Books.objects.all()
+    
+#     # django will look for the corresponding template: modelname_list in the app
+#     # so for this django will look for templates/catalog/book_list.html
+
+def bookList_view(request):
+    booklist = Book.objects.all()
+    context = {
+        'booklist': booklist
+    }
+    return render(request, 'book_list.html', context)
+
+def bookdetail_view(request, id):
+    try:
+        book = Book.objects.get(pk=id)
+    except Book.DoesNotExist:
+        raise Http404('The book does not exist')
+    context = {
+        'book':book,
+    }
+    return render(request, 'book_detail.html', context)

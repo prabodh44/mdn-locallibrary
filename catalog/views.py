@@ -24,20 +24,19 @@ def index(request):
     
 
 # CLASS BASED VIEWS
-# class BookListView(generic.ListView):
-#     model = Book
-#     context_object_name = 'my_book_list'
-#     queryset = Books.objects.all()
+class BookListView(generic.ListView):
+    model = Book
+    
     
 #     # django will look for the corresponding template: modelname_list in the app
 #     # so for this django will look for templates/catalog/book_list.html
 
-def bookList_view(request):
-    booklist = Book.objects.all()
-    context = {
-        'booklist': booklist
-    }
-    return render(request, 'book_list.html', context)
+# def bookList_view(request):
+#     booklist = Book.objects.all()
+#     context = {
+#         'booklist': booklist
+#     }
+#     return render(request, 'book_list.html', context)
 
 def bookdetail_view(request, id):
     try:

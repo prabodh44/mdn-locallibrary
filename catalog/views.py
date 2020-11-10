@@ -15,11 +15,15 @@ def index(request):
     
     num_of_authors = Author.objects.all().count()
     
+    num_of_views = request.session.get('num_of_views', 0)
+    request.session['num_of_views'] =  num_of_views + 1
+    
     context = {
         'num_of_books' : num_of_books,
         'num_of_instances' : num_of_instances,
         'num_of_instances_avaiable' : num_of_instances_avaiable,
         'num_of_authors': num_of_authors,
+        'num_of_views': num_of_views,
     }
     
     print("REQUEST ", request)

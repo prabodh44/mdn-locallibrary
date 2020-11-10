@@ -9,4 +9,14 @@
         <li><strong>Copies available:</strong> {{ num_of_instances_avaiable }}</li>
         <li><strong>Authors:</strong> {{ num_of_authors }}</li>
     </ul>
+
+    
+        <div class="fixed-bottom" style="margin-left:35px;">
+            <hr>
+            
+            <h4 class="text-muted">
+            The site has been visited {{ num_of_views }} {% if num_of_views ==  1%} time {% else %} times {% endif %}
+            </h4>
+        </div>
+    
 {% endblock content %}

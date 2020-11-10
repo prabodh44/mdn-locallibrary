@@ -8,6 +8,8 @@ def index(request):
     num_of_books        = Book.objects.all().count()
     num_of_instances    = BookInstance.objects.all().count()
     
+    
+    
     # Available books (status = a)  
     num_of_instances_avaiable = BookInstance.objects.filter(status__exact='a').count()
     
@@ -24,6 +26,8 @@ def index(request):
     
 
 # CLASS BASED VIEWS
+class BookDetailView(generic.DetailView):
+    model = Book
 class BookListView(generic.ListView):
     model = Book
     
@@ -38,12 +42,16 @@ class BookListView(generic.ListView):
 #     }
 #     return render(request, 'book_list.html', context)
 
-def bookdetail_view(request, id):
-    try:
-        book = Book.objects.get(pk=id)
-    except Book.DoesNotExist:
-        raise Http404('The book does not exist')
-    context = {
-        'book':book,
-    }
-    return render(request, 'book_detail.html', context)
+# def bookdetail_view(request, id):
+#     try:
+#         book = Book.objects.get(pk=id)
+#     except Book.DoesNotExist:
+#         raise Http404('The book does not exist')
+#     context = {
+#         'book':book,
+#     }
+#     return render(request, 'book_detail.html', context)
+
+
+    
+

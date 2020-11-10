@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if author_list %}
+    {% for author in author_list %}
+    
+    <p>
+        {{ forloop.counter }}. <a href="{{ author.get_absolute_url }}">{{ author.last_name }}, {{ author.first_name }}</a>
+    </p>
+    {% endfor %}
+
+{% endif %}
+
+{% endblock content %}
+

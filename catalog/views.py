@@ -22,6 +22,8 @@ def index(request):
         'num_of_authors': num_of_authors,
     }
     
+    print("REQUEST ", request)
+    
     return render(request, 'index.html', context)
     
 
@@ -30,6 +32,13 @@ class BookDetailView(generic.DetailView):
     model = Book
 class BookListView(generic.ListView):
     model = Book
+
+class AuthorListView(generic.ListView):
+    model = Author
+     
+class AuthorDetailView(generic.DetailView):
+    model = Author    
+    
     
     
 #     # django will look for the corresponding template: modelname_list in the app

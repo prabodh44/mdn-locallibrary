@@ -2,6 +2,13 @@
 
 {% block content %}
 
+{% comment %} since this view as been created from generic.DetailView 
+the template can be found in templates/catalog/book_detail.html 
+i.e. templates/[app_name]/{modelName_detail.html}
+
+the template variable can be accessed as book 
+i.e. [modelName] {% endcomment %}
+
 <h1>Title: {{ book.title }}</h1>
 
 <p><strong>Author: <a href="">{{ book.author }}</a></strong></p>

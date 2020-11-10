@@ -38,7 +38,9 @@ class AuthorListView(generic.ListView):
      
 class AuthorDetailView(generic.DetailView):
     model = Author    
-    
+
+
+# TODO: SESSIONS FRAMEWORK
     
     
 #     # django will look for the corresponding template: modelname_list in the app

@@ -44,8 +44,12 @@ class AuthorDetailView(generic.DetailView):
     model = Author    
 
 
-# TODO: SESSIONS FRAMEWORK
+# @login_required
+# def restricted_view(request):
+#     pass 
     
+# the @login_required decorator runs the views only if a user is logged in 
+# and autheticated else it will redirect to the login URL in settings.LOGIN_URL
     
 #     # django will look for the corresponding template: modelname_list in the app
 #     # so for this django will look for templates/catalog/book_list.html

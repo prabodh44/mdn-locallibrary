@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
+from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
 from catalog.models import BookInstance, Book, Author, Genre
 # Create your views here.
@@ -44,9 +46,11 @@ class AuthorDetailView(generic.DetailView):
     model = Author    
 
 
-# @login_required
-# def restricted_view(request):
-#     pass 
+@login_required #import required from django.contrib.auth.decorators
+def restricted_view(request):
+    response_string = "<h1> This is a restricted view </h1>"
+    response_string += "<p> This will only be displayed if you are logged in </p>"
+    return HttpResponse(response_string)
     
 # the @login_required decorator runs the views only if a user is logged in 
 # and autheticated else it will redirect to the login URL in settings.LOGIN_URL
